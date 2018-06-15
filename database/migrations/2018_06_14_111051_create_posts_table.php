@@ -17,11 +17,11 @@ class CreatePostsTable extends Migration
             $table->increments('id');
             $table->integer('author_id')->unsigned();
             $table->foreign('author_id')->references('id')->on('users')->onDelete('restrict');
-            $table->string('title');
-            $table->string('slug')->unique();
+            $table->string('title', 50);
+            $table->string('slug', 90)->unique();
             $table->text('excerpt');
             $table->text('body');
-            $table->string('image')->nullable();
+            $table->string('image', 100)->nullable();
             $table->timestamps();
         });
     }
